@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Projects</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">My Name</div>
+    <nav>
+        <ul>
+            <li><a href="about.html" title="About" class="header-button">About</a></li>
+            <li><a href="projects.html" title="Projects" class="header-button">Projects</a></li>
+            <li><a href="resume.html" title="Resume" class="header-button">Resume</a></li>
+        </ul>
+    </nav>
+</header>
+
+<header>
+    <div class="filters">
+        <div class="tags">
+            <button class="tag active" data-tag="all">All</button>
+            <button class="tag" data-tag="school">#school</button>
+            <button class="tag" data-tag="coding">#coding</button>
+            <button class="tag" data-tag="design">#design</button>
+            <!-- Add more tags as needed -->
+        </div>
+        <div class="sorting">
+            Sort by:
+            <select name="sort" id="sort-select">
+                <option value="recent">Most Recent</option>
+                <option value="alphabetical">Alphabetical</option>
+                <!-- Add more sorting options as needed -->
+            </select>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="project-list">
+        <!-- Repeat this project card for each project -->
+        <div class="project-card" data-tags="school coding">
+            <img src="images/project1-thumbnail.jpg" alt="Project 1 thumbnail">
+            <h3>Project One</h3>
+            <p>A brief description of project one. This project is about ...</p>
+            <a href="project-details-1.html" class="more-details">More details →</a>
+        </div>
+
+        <div class="project-card" data-tags="design">
+            <img src="images/project2-thumbnail.jpg" alt="Project 2 thumbnail">
+            <h3>Project Two</h3>
+            <p>A brief description of project two. This project explores ...</p>
+            <a href="project-details-2.html" class="more-details">More details →</a>
+        </div>
+        
+        <!-- Add more project cards -->
+    </div>
+</main>
+
+<footer>
+    <hr>
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem;">
+        <div style="font-size: 0.9rem;">
+            <span>myemail@example.com</span>
+        </div>
+        <div>
+            <a href="https://instagram.com/yourusername" target="_blank" style="margin-right: 0.5rem;">
+                <img src="images/instagram-icon.svg" alt="Instagram" style="width:20px;height:auto;">
+            </a>
+            <a href="https://github.com/yourusername" target="_blank" style="margin-right: 0.5rem;">
+                <img src="images/github-icon.svg" alt="GitHub" style="width:20px;height:auto;">
+            </a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank">
+                <img src="images/linkedin-icon.svg" alt="LinkedIn" style="width:20px;height:auto;">
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Basic script to handle tag filtering and selection display (optional)
+    // Replace with more robust JS logic as needed.
+
+    const tagsButtons = document.querySelectorAll('.tag');
+    const projectCards = document.querySelectorAll('.project-card');
+    const footerTitle = document.querySelector('.selected-project-description h2');
+    const footerDesc = document.querySelector('.selected-project-description p');
+    const footerImg = document.querySelector('.selected-project-image');
+    const footerLink = document.querySelector('.full-details-link');
+
+    tagsButtons.forEach(tagBtn => {
+        tagBtn.addEventListener('click', () => {
+            tagsButtons.forEach(btn => btn.classList.remove('active'));
+            tagBtn.classList.add('active');
+
+            const selectedTag = tagBtn.getAttribute('data-tag');
+            projectCards.forEach(card => {
+                const cardTags = card.getAttribute('data-tags');
+                if (selectedTag === 'all' || cardTags.includes(selectedTag)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Click event to select a project and show details in the footer
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const title = card.querySelector('h3').innerText;
+            const desc = card.querySelector('p').innerText;
+            const imgSrc = card.querySelector('img').getAttribute('src');
+            const detailsLink = card.querySelector('.more-details').getAttribute('href');
+
+            footerTitle.innerText = title;
+            footerDesc.innerText = desc;
+            footerImg.setAttribute('src', imgSrc);
+            footerLink.setAttribute('href', detailsLink);
+        });
+    });
+
+    // Sorting logic would go here if needed, based on #sort-select value
+</script>
+
+</body>
+</html>
