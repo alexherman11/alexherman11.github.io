@@ -1,131 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>My Projects</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Alex Herman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project-style.css">
 </head>
 <body>
+    <div class="page-wrapper">
+        <header>
+            <a href="index.html" class="logo">Alex Herman</a>
+            <nav>
+                <ul>
+                    <li><a href="about.html" title="About">About</a></li>
+                    <li><a href="projects.html" title="Projects" class="active">Projects</a></li>
+                    <li><a href="resume.html" title="Resume">Resume</a></li>
+                </ul>
+            </nav>
+        </header>
 
-<header>
-    <div class="logo">My Name</div>
-    <nav>
-        <ul>
-            <li><a href="about.html" title="About" class="header-button">About</a></li>
-            <li><a href="projects.html" title="Projects" class="header-button">Projects</a></li>
-            <li><a href="resume.html" title="Resume" class="header-button">Resume</a></li>
-        </ul>
-    </nav>
-</header>
+        <main>
+            <section class="filters">
+                <div class="tags">
+                    <button class="tag active" data-tag="all">All</button>
+                    <button class="tag" data-tag="school">#school</button>
+                    <button class="tag" data-tag="coding">#coding</button>
+                    <button class="tag" data-tag="design">#design</button>
+                </div>
+                <div class="sorting">
+                    Sort by:
+                    <select name="sort" id="sort-select">
+                        <option value="recent">Most Recent</option>
+                        <option value="alphabetical">Alphabetical</option>
+                    </select>
+                </div>
+            </section>
 
-<header>
-    <div class="filters">
-        <div class="tags">
-            <button class="tag active" data-tag="all">All</button>
-            <button class="tag" data-tag="school">#school</button>
-            <button class="tag" data-tag="coding">#coding</button>
-            <button class="tag" data-tag="design">#design</button>
-            <!-- Add more tags as needed -->
-        </div>
-        <div class="sorting">
-            Sort by:
-            <select name="sort" id="sort-select">
-                <option value="recent">Most Recent</option>
-                <option value="alphabetical">Alphabetical</option>
-                <!-- Add more sorting options as needed -->
-            </select>
-        </div>
-    </div>
-</header>
+            <section class="project-list">
+                <article class="project-card" data-title="Beatbox Project" data-date="2023-09-15" data-tags="school design coding">
+                    <img src="images/beatbox-thumbnail.jpg" alt="Beatbox Project Thumbnail">
+                    <h3>Beatbox Project</h3>
+                    <p>An interactive music creation project using microcontrollers.</p>
+                    <a href="projects/beatbox.html" class="more-details">More details →</a>
+                </article>
+            
+                <article class="project-card" data-title="Sally Project" data-date="2023-03-20" data-tags="coding club design">
+                    <img src="images/sally-thumbnail.jpg" alt="Sally Project Thumbnail">
+                    <h3>Sally Project</h3>
+                    <p>A project focused on assistive technology using foot-operated input</p>
+                    <a href="projects/footmouse.html" class="more-details">More details →</a>
+                </article>
+            
+                <article class="project-card" data-title="PROVE" data-date="2024-10-30">
+                    <img src="images/PROVE-thumbnail.jpg" alt="PROVE Project Thumbnail">
+                    <h3>PROVE</h3>
+                    <p>An interactive tablet interface for an electric vehicle</p>
+                    <a href="projects/prove.html" class="more-details">More details →</a>
+                </article>
+            </section>
+            
+        </main>
 
-<main>
-    <div class="project-list">
-        <!-- Repeat this project card for each project -->
-        <div class="project-card" data-tags="school coding">
-            <img src="images/project1-thumbnail.jpg" alt="Project 1 thumbnail">
-            <h3>Project One</h3>
-            <p>A brief description of project one. This project is about ...</p>
-            <a href="project-details-1.html" class="more-details">More details →</a>
-        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+            const tagsButtons = document.querySelectorAll('.tag');
+            const projectCards = Array.from(document.querySelectorAll('.project-card'));
+            const projectList = document.querySelector('.project-list');
+            const footerTitle = document.querySelector('.selected-project-description h2');
+            const footerDesc = document.querySelector('.selected-project-description p');
+            const footerImg = document.querySelector('.selected-project-image');
+            const footerLink = document.querySelector('.full-details-link');
+            const sortSelect = document.getElementById('sort-select');
 
-        <div class="project-card" data-tags="design">
-            <img src="images/project2-thumbnail.jpg" alt="Project 2 thumbnail">
-            <h3>Project Two</h3>
-            <p>A brief description of project two. This project explores ...</p>
-            <a href="project-details-2.html" class="more-details">More details →</a>
-        </div>
-        
-        <!-- Add more project cards -->
-    </div>
-</main>
+            let currentTag = 'all'; // Keeps track of the active tag
+            let currentSort = 'date'; // Keeps track of the active sort method
 
-<footer>
-    <hr>
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem;">
-        <div style="font-size: 0.9rem;">
-            <span>myemail@example.com</span>
-        </div>
-        <div>
-            <a href="https://instagram.com/yourusername" target="_blank" style="margin-right: 0.5rem;">
-                <img src="images/instagram-icon.svg" alt="Instagram" style="width:20px;height:auto;">
-            </a>
-            <a href="https://github.com/yourusername" target="_blank" style="margin-right: 0.5rem;">
-                <img src="images/github-icon.svg" alt="GitHub" style="width:20px;height:auto;">
-            </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank">
-                <img src="images/linkedin-icon.svg" alt="LinkedIn" style="width:20px;height:auto;">
-            </a>
-        </div>
-    </div>
-</footer>
+            // Function to filter projects based on the selected tag
+            const filterProjects = () => {
+                projectCards.forEach(card => {
+                    const cardTags = card.getAttribute('data-tags');
+                    if (currentTag === 'all' || cardTags.includes(currentTag)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            };
 
-<script>
-    // Basic script to handle tag filtering and selection display (optional)
-    // Replace with more robust JS logic as needed.
+            // Function to sort projects based on the selected sort method
+            const sortProjects = () => {
+                const visibleProjects = projectCards.filter(card => card.style.display !== 'none');
 
-    const tagsButtons = document.querySelectorAll('.tag');
-    const projectCards = document.querySelectorAll('.project-card');
-    const footerTitle = document.querySelector('.selected-project-description h2');
-    const footerDesc = document.querySelector('.selected-project-description p');
-    const footerImg = document.querySelector('.selected-project-image');
-    const footerLink = document.querySelector('.full-details-link');
-
-    tagsButtons.forEach(tagBtn => {
-        tagBtn.addEventListener('click', () => {
-            tagsButtons.forEach(btn => btn.classList.remove('active'));
-            tagBtn.classList.add('active');
-
-            const selectedTag = tagBtn.getAttribute('data-tag');
-            projectCards.forEach(card => {
-                const cardTags = card.getAttribute('data-tags');
-                if (selectedTag === 'all' || cardTags.includes(selectedTag)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
+                if (currentSort === 'date') {
+                    visibleProjects.sort((a, b) => {
+                        // Parse the data-date attributes into Date objects and compare them
+                        const dateA = new Date(a.dataset.date);
+                        const dateB = new Date(b.dataset.date);
+                        return dateB - dateA; // Most recent first
+                    });
+                } else if (currentSort === 'alphabetical') {
+                    visibleProjects.sort((a, b) => {
+                        // Compare by title (alphabetical order)
+                        return a.dataset.title.localeCompare(b.dataset.title);
+                    });
                 }
+
+                // Reorder visible projects in the DOM
+                visibleProjects.forEach(project => projectList.appendChild(project));
+            };
+
+            // Function to apply both filtering and sorting
+            const applyFilterAndSort = () => {
+                filterProjects();
+                sortProjects();
+            };
+
+            // Tag click event logic
+            tagsButtons.forEach(tagBtn => {
+                tagBtn.addEventListener('click', () => {
+                    tagsButtons.forEach(btn => btn.classList.remove('active'));
+                    tagBtn.classList.add('active');
+                    currentTag = tagBtn.getAttribute('data-tag'); // Update active tag
+                    applyFilterAndSort();
+                });
             });
+
+            // Sorting dropdown change event logic
+            sortSelect.addEventListener('change', () => {
+                currentSort = sortSelect.value; // Update active sort method
+                applyFilterAndSort();
+            });
+
+            // Click event to display project details in the footer
+            projectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.querySelector('h3').innerText;
+                    const desc = card.querySelector('p').innerText;
+                    const imgSrc = card.querySelector('img').getAttribute('src');
+                    const detailsLink = card.querySelector('.more-details').getAttribute('href');
+
+                    footerTitle.innerText = title;
+                    footerDesc.innerText = desc;
+                    footerImg.setAttribute('src', imgSrc);
+                    footerLink.setAttribute('href', detailsLink);
+                });
+            });
+
+            // Initial filter and sort on page load
+            applyFilterAndSort();
         });
-    });
 
-    // Click event to select a project and show details in the footer
-    projectCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const title = card.querySelector('h3').innerText;
-            const desc = card.querySelector('p').innerText;
-            const imgSrc = card.querySelector('img').getAttribute('src');
-            const detailsLink = card.querySelector('.more-details').getAttribute('href');
+        </script>
 
-            footerTitle.innerText = title;
-            footerDesc.innerText = desc;
-            footerImg.setAttribute('src', imgSrc);
-            footerLink.setAttribute('href', detailsLink);
-        });
-    });
-
-    // Sorting logic would go here if needed, based on #sort-select value
-</script>
-
+        <footer>
+            <hr>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem;">
+                <div style="font-size: 0.9rem;">
+                    <span>1wheelalex@gmail.com</span>
+                </div>
+                <div>
+                    <a href="https://instagram.com/alex.herman101" target="_blank" style="margin-right: 0.5rem;">
+                        <img src="images/instagram-icon.svg" alt="Instagram" style="width:20px;height:auto;">
+                    </a>
+                    <a href="https://github.com/alexherman11" target="_blank" style="margin-right: 0.5rem;">
+                        <img src="images/github-icon.svg" alt="GitHub" style="width:20px;height:auto;">
+                    </a>
+                    <a href="https://linkedin.com/in/alex" target="_blank">
+                        <img src="images/linkedin-icon.svg" alt="LinkedIn" style="width:20px;height:auto;">
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
+
 </html>

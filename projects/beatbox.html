@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The BeatBox</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0 80px;
+        }
+
+        header {
+            padding: 1em;
+            background-color: #f0f0f0;
+        }
+
+        header .logo {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* Right Sidebar Navigation */
+        aside {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #fafafa;
+            border-left: 1px solid #ccc;
+            padding: 1em;
+            box-sizing: border-box;
+        }
+
+        aside h2 {
+            margin-top: 0;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        aside nav ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        aside nav ul li {
+            margin: 0.5em 0;
+        }
+
+        aside nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9em;
+        }
+
+        main {
+            margin-right: 220px;
+            padding: 1em;
+            min-height: 100vh;
+        }
+
+        main h1 {
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+
+        main h2 {
+            margin-top: 2em;
+            font-size: 1.4em;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            padding: 0.5em;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            padding: 1em;
+            text-align: center;
+            font-size: 0.8em;
+            color: #666;
+            border-top: 1px solid #ccc;
+            margin-top: 2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">The BeatBox</div>
+    </header>
+
+    <aside>
+        <h2>Menu</h2>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#system">System Specifications</a></li>
+                <li><a href="#software">Software Architecture</a></li>
+                <li><a href="#usage">Usage</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>The BeatBox Project</h1>
+        <p>
+            Controlled by an STM32L47RG microcontroller, the BeatBox is a simple to use, terminal-interfacing device that allows a user to generate simple four measure beats in the key of C and add accompanying drum kit tracks. 
+            The BeatBox is designed for modular usage, with the user able to select sounds for their drumkit simply by choosing from household objects like water glasses and boxes. Multiple features increase usability, like looping, screen reset, and three selectable preset drum kits.
+        </p>
+
+        <h2 id="system">System Specifications</h2>
+        <img src="/images/system_specs.png" alt="system_specs" >
+        <img src="resources/beatbox/system_schematic.png" alt="System Schematic">
+
+        <h2 id="software">Software Architecture</h2>
+        <p>
+            The program uses a finite state machine (FSM) to manage user input, playback, and display coordination. It communicates via UART at 115,200 baud rate, supporting VT-100 escape codes for an interactive terminal interface.
+        </p>
+        <img src="resources/beatbox/software_fsm.png" alt="Software FSM Diagram">
+
+        <h3>User Commands</h3>
+        <table>
+            <tr>
+                <th>Command</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>[A-G][1-4][1-4][1-4]</td>
+                <td>Add note at measure, beat, and duration.</td>
+            </tr>
+            <tr>
+                <td>K[1-3]</td>
+                <td>Select drum kit 1-3.</td>
+            </tr>
+            <tr>
+                <td>P</td>
+                <td>Play the current track.</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>Toggle looping.</td>
+            </tr>
+            <tr>
+                <td>R</td>
+                <td>Reset display and notes.</td>
+            </tr>
+        </table>
+
+        <h2 id="usage">How to Use the BeatBox</h2>
+        <h3>Getting Started</h3>
+        <p>
+            Connect the device to a VT-100 compatible UART terminal and ensure the connection runs at 115,200 baud. Gather household objects (like glasses or boxes) for drum sounds.
+        </p>
+        <img src="resources/beatbox/usage_example.png" alt="BeatBox Terminal Example">
+
+        <h3>Adding Notes</h3>
+        <p>
+            Simply type the note letter (A-G), followed by the measure, beat, and duration. For example:
+        </p>
+        <p><strong>A123</strong> - Adds note 'A' in measure 1, beat 2, with a duration of 3 beats.</p>
+
+        <h3>Drum Configuration</h3>
+        <p>
+            Choose drum kits by typing <strong>K1, K2, or K3</strong>. Kits include preprogrammed patterns for the snare and kick drum.
+        </p>
+        <img src="resources/beatbox/drum_kit.png" alt="Drum Kit Example">
+
+        <h3>Playback</h3>
+        <p>
+            Press <strong>P</strong> to play your current track. Enable looping by typing <strong>L</strong>.
+        </p>
+
+        <h2 id="troubleshooting">Troubleshooting</h2>
+        <ul>
+            <li><strong>Issue:</strong> No display output.<br><strong>Solution:</strong> Check the cable connection and ensure 115,200 baud rate is set.</li>
+            <li><strong>Issue:</strong> No sound from speaker.<br><strong>Solution:</strong> Verify speaker connections and volume settings.</li>
+            <li><strong>Issue:</strong> Servo arm falls off.<br><strong>Solution:</strong> Adjust the drum positioning for more clearance.</li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Alex Herman | BeatBox Project</p>
+    </footer>
+</body>
+</html>
