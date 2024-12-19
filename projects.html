@@ -39,24 +39,30 @@
 
             <section class="project-list">
                 <article class="project-card" data-title="Beatbox Project" data-date="2023-09-15" data-tags="school design coding">
-                    <img src="images/beatbox-thumbnail.jpg" alt="Beatbox Project Thumbnail">
-                    <h3>Beatbox Project</h3>
-                    <p>An interactive music creation project using microcontrollers.</p>
-                    <a href="projects/beatbox.html" class="more-details">More details →</a>
+                    <img src="images/BeatBox/uart-interface.png" alt="Beatbox Project Thumbnail">
+                    <section class="text-content">
+                        <h3>Beatbox Project</h3>
+                        <p>An interactive music creation project using microcontrollers.</p>
+                        <a href="projects/beatbox.html" class="more-details">More details →</a>
+                    </section>
                 </article>
             
                 <article class="project-card" data-title="Sally Project" data-date="2023-03-20" data-tags="coding club design">
-                    <img src="images/sally-thumbnail.jpg" alt="Sally Project Thumbnail">
-                    <h3>Sally Project</h3>
-                    <p>A project focused on assistive technology using foot-operated input</p>
-                    <a href="projects/footmouse.html" class="more-details">More details →</a>
+                    <img src="images/FootMouse/leonardo.png" alt="Sally Project Thumbnail">
+                    <section class="text-content">
+                        <h3>Foot Mouse for Sally</h3>
+                        <p>A project focused on assistive technology for someone without the use of the their hands.</p>
+                        <a href="projects/footmouse.html" class="more-details">More details →</a>
+                    </section>
                 </article>
             
                 <article class="project-card" data-title="PROVE" data-date="2024-10-30">
-                    <img src="images/PROVE-thumbnail.jpg" alt="PROVE Project Thumbnail">
+                    <img src="images/PROVE/prove_logo.png" alt="PROVE Project Thumbnail">
+                    <section class="text-content">
                     <h3>PROVE</h3>
                     <p>An interactive tablet interface for an electric vehicle</p>
                     <a href="projects/prove.html" class="more-details">More details →</a>
+                    </section>
                 </article>
             </section>
             
@@ -76,8 +82,8 @@
             let currentTag = 'all'; // Keeps track of the active tag
             let currentSort = 'date'; // Keeps track of the active sort method
 
-            // Function to filter projects based on the selected tag
-            const filterProjects = () => {
+            const applyFilterAndSort = () => {
+                // Step 1: Filter projects based on the current tag
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
                     if (currentTag === 'all' || cardTags.includes(currentTag)) {
@@ -86,35 +92,26 @@
                         card.style.display = 'none';
                     }
                 });
-            };
 
-            // Function to sort projects based on the selected sort method
-            const sortProjects = () => {
+                // Step 2: Sort the visible projects
                 const visibleProjects = projectCards.filter(card => card.style.display !== 'none');
 
                 if (currentSort === 'date') {
                     visibleProjects.sort((a, b) => {
-                        // Parse the data-date attributes into Date objects and compare them
                         const dateA = new Date(a.dataset.date);
                         const dateB = new Date(b.dataset.date);
                         return dateB - dateA; // Most recent first
                     });
                 } else if (currentSort === 'alphabetical') {
                     visibleProjects.sort((a, b) => {
-                        // Compare by title (alphabetical order)
-                        return a.dataset.title.localeCompare(b.dataset.title);
+                        return a.dataset.title.localeCompare(b.dataset.title); // Alphabetical order
                     });
                 }
 
-                // Reorder visible projects in the DOM
+                // Step 3: Reorder visible projects in the DOM
                 visibleProjects.forEach(project => projectList.appendChild(project));
             };
 
-            // Function to apply both filtering and sorting
-            const applyFilterAndSort = () => {
-                filterProjects();
-                sortProjects();
-            };
 
             // Tag click event logic
             tagsButtons.forEach(tagBtn => {
