@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROVE</title>
+    <link rel="stylesheet" href="/project-info.css">
+</head>
+<body>
+    <header>
+        <div class="logo">PROVE Lab</div>
+    </header>
+
+    <aside>
+        <h2>Menu</h2>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#tablet">Tablet</a></li>
+                <li><a href="#software">Code</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>UART Connected Dashboard</h1>
+        <p>
+            During my junior year I worked as part of a small but passionate team of engineers for the PROVE (Prototype Vehicle) Lab, an 
+            on-campus club with the mission of breaking the world record for longest drive on a single charge. 
+            Starting out on the Low-Voltage team, I began by talking with other members to fully understand the entire structure of our 
+            system, from the brake sensors to the tablet-interface. 
+        </p>
+        <p>
+            During the time I worked with this club I felt like I made some good friends and learned a lot about the challenges with large projects. 
+            I saw how tough it could be to feel motivated when one part  of the project was failing, preventing others from moving forward. While my role and impact may have been small, I feel that the experience of working in a team environment with deadlines, official 
+            documentation, and real engineering goals was very valuable and has served me well going forward.
+        </p>
+
+        <h2 id="tablet">The Tablet Interface</h2>
+        <img src="/images/PROVE/mila_dash.png" alt="System Schematic" style="width: 40%;">
+        <p>
+            As part of my application to the club, I was asked to design a dynamic battery gauge element in Android Studio. 
+            This did not prove too challenging and soon I was tasked with a full redesign and automation of the interface. I began by working 
+            to completely understand the old code base, and found that there were some very dubious things done by the previous 
+            coders to get things to work. I spent a lot of time transitioning the code to be page based, so that clicking the settings 
+            button actually navigated to a new window. However, this presented the new challenge of keeping processes running in the background
+            like a run timer. 
+        </p>
+        <p></p>
+            Ultimately, the primary challenges I faced were related to the learning curve of  
+            Andoid Studio. While I found I could get individual elements working and layed out, interfacing the design with java code 
+            and making that code recieve data over UART was another story (especially because at this time I'd never heard of UART). Ultimately I drew heavingly on the expertise of my 
+            skilled team members who had experience with java to get an elementary packet transfer program running.
+            We were able to get the tablet application booted to the device and send it data, however we did not succeed at the time to get 
+            the dynamic interface to act as expected.   
+        </p>
+        <p>
+            
+        </p>
+        <h2 id="software">GitHub</h2>
+        <p>
+            Anyone interested in the code for this project and the rest of the low-voltage team's work can check out our GitHub 
+            <a href="https://github.com/PROVELab">here.</a>
+        </p>
+        
+        
+    </main>
+
+    <footer>
+        <p> PROVE Tablet Interface</p>
+    </footer>
+</body>
+</html>
