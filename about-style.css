@@ -126,17 +126,21 @@ img {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    background: #e6f4f1;
+    background: #cfe2de;
     border-radius: 8px;
     padding: 2rem;
     margin-bottom: 2rem;
 }
 
+.ocean-photo-area {
+    display: flex;
+    align-items: center;
+}
+
 .ocean-pic {
-    width: 250px;
+    width: 300px;
     height: auto;
-    border: 4px solid var(--light-blue);
-    object-fit: cover;
+    object-fit:fill;
 }
 
 .ocean-passion .ocean-text {
