@@ -14,6 +14,17 @@ header .logo {
     font-size: 1.2em;
 }
 
+/* Menu toggle button, hidden by default. */
+.menu-toggle {
+    display: none;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-size: 1em;
+}
+
 /* Right Sidebar Navigation */
 aside {
     position: fixed;
@@ -78,6 +89,14 @@ img {
     height: auto;
 }
 
+/* Photo on right */
+.float-right {
+    float: right;
+    margin-left: 15px; /* adds space between image and text */
+    margin-bottom: 1em; /* some space below the image too */
+    max-width: 300px; /* optional: limit the image size */
+}
+
 footer {
     padding: 1em;
     text-align: center;
@@ -85,4 +104,38 @@ footer {
     color: #666;
     border-top: 1px solid #ccc;
     margin-top: 2em;
+}
+
+/* MEDIA QUERY FOR SMALL SCREENS */
+@media screen and (max-width: 768px) {
+    /* Reduce body padding on small screens */
+    body {
+        padding: 0 20px;
+    }
+
+    /* Hide the sidebar by default and remove fixed positioning */
+    aside {
+        display: none;
+        position: static;
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #ccc;
+        margin-top: 1em;
+    }
+
+    /* When we add .show to aside, we display it */
+    aside.show {
+        display: block;
+    }
+
+    /* Main should no longer have margin-right to accommodate aside */
+    main {
+        margin-right: 0;
+    }
+
+    /* Show the toggle button on small screens */
+    .menu-toggle {
+        display: inline-block;
+        margin-top: 1em;
+    }
 }

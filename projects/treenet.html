@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Make sure this line is present for mobile-friendliness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treenet</title>
+    <link rel="stylesheet" href="/project-info.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Exploration Log</div>
+        <!-- Button that will show/hide the menu on small screens -->
+        <button class="menu-toggle" aria-label="Toggle Menu">Menu</button>
+    </header>
+
+    <aside>
+        <h2>Menu</h2>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#origins">Origins</a></li>
+                <li><a href="#first">My first net</a></li>
+                <li><a href="#materials">Finding the spot</a></li>
+                <li><a href="#thebuild">The Build</a></li>
+                <li><a href="#future">Updates</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1 id="origins">The Tree Net</h1>
+        <p>
+            While I was living in the on-campus second year apartments during my second year at SLO I was inspired to explore the hillside behind where I lived. 
+            There, about a 10 minute hike up the hill, I found a sad and dejected mess of rope in a beautiful oak tree 
+            overlooking the campus. Recognizing it as a tree net like the ones I'd discovered at UCSC, 
+            I set about repairing it with no experience whatsoever. 
+        </p>
+        
+        <p>
+            After completely disassembling and reassembling the net, I learned a few basic lessons. In order to build tension, you had to use strong clove hitches along the perimeter, ensuring that the rope would not come undone when taught, 
+            but also a knot that can be easily tied under tension. You have to wrap at each crossing of the rope as you weave, ensuring that any tension you create gets transfered to the whole net, without any sliding or shifting. 
+            In this way I tought myself the basics, and began learning the fundamentals for building a great net. 
+        </p>
+        <figure>
+            <img src="/images/TreeNet/feet.jpg" alt="my feet enjoying the view" />
+            <figcaption>
+              Enjoying the view after fixing the net.
+            </figcaption>
+          </figure>
+        <h2 id="first">My First Net</h2>
+        <img src="/images/TreeNet/outline.jpg" alt="outline of net" class="float-right">
+
+        <p>
+            While the first net had been greatly improved by my work, it did not feel entirely my own and was not particularly secluded (it soon became relatively well known). 
+            I enjoyed it for a while but soon craved a new challenge. After scouting about a hundred trees I bushwhacked my way to a majestic lone oak 
+            alive with bees, birds, and large beetles. I spent multiple days simply imagining and planning different net 
+            locations within the tree, running through weaknesses, material contraints, and creative workarouds. I sought advice from my climbing 
+            buddy Eric and we worked together to outline what we thought might just work, 50ft in the air.
+        </p>
+
+        <h2 id="materials">Materials</h2>
+
+        <p>
+            For this project I knew I wanted high quality paracord and a strong outer border but I also wanted to keep it reasonably cheap.
+            I found <a href="atwoodrope.com">atwood rope</a> which had great deals on utility cord and 550 paracord mystery boxes which were ideal for this project.
+            I bought the 10lb mystery box of paracord for about $40 and 100ft of utility for $30. (Note: Future projects will use recycled climbing rope for its strength and economy) 
+        </p>
+        <h2 id="thebuild">The Build</h2>
+        <p>
+            I began by outlining the shape of the net, and being extremely careful to ensure that no part of the rope 
+            would choke the tree. Over the next two weeks I began to weave, using the excess utility cord as a sort 
+            of scaffolding, so I could walk out over the empty space above the ground and work above my head. 
+            Eventually, after inventing multiple methods to reinforce and extend the net, it reached the point 
+            where I could sit on it and work which greatly increased the progress. I added a patterned backrest and some other fun features like 
+            an entrance portal.
+        </p>
+        <img src="/images/TreeNet/complete.jpg" alt="complete net" style = "width: 80%;">
+           
+        <h2 id="future">Updates</h2>
+        <p>     
+            I have since added a journal and pens to the net so other adventurers can add their stories. 
+            I have also begun working on a Tree Net 101 course toward the back of the journal so others 
+            can learn to build safe and sustainable nets for everyone to enjoy. I recently scouted some new location within
+            the Bishop Peak Open Space Preserve, which I hope to be awesome way to share this skill and inspire others to care for and appreciate the natural world.
+        </p>
+        
+        
+    </main>
+
+    <footer>
+        <p>Great Outdoors Project: The Treenet</p>
+    </footer>
+
+    <!-- Small script to toggle .show class on aside -->
+    <script>
+      const toggleBtn = document.querySelector('.menu-toggle');
+      const asideEl = document.querySelector('aside');
+
+      toggleBtn.addEventListener('click', () => {
+        asideEl.classList.toggle('show');
+      });
+    </script>
+</body>
+</html>
+
