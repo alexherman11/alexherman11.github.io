@@ -1,30 +1,18 @@
+/* Let html/body fill the viewport and reset margins/padding. */
 html, body {
-    display: flex;
-    flex-direction: column;
-    flex: 0;
     margin: 0;
+    padding: 0;
+    height: 100%; /* Or 100vh if preferred */
     font-family: 'Inter', sans-serif;
-    height: 100%;
-    color: #333;
     background: #f9f9f9;
-}
+    color: #333;
+  }
 
 .wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    height: 100vh;
 }
-
-.page-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-}
-
-footer a {
-    text-decoration: none;
-  }
-
 
 .logo {
     color: #fff;
@@ -112,11 +100,14 @@ nav a:hover {
     color: #555;
 }
 
+
+
 /* Projects Section */
 .projects {
     padding: 1rem;
     max-width: 1000px;
     margin: 0 auto;
+    flex: 1;
 }
 
 .projects h2 {
@@ -131,6 +122,7 @@ nav a:hover {
 
 .project-list {
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
     gap: 1rem;
 }
@@ -216,13 +208,15 @@ nav a:hover {
 
 /* Footer */
 footer {
-    position: static;
-    bottom: 0;
-    width: 100%;
     background: #f0f0f0;
     padding: 1rem;
     box-sizing: border-box;
-}
+    /* No need for position: static or bottom: 0 if using flex. */
+  }
+
+footer a {
+    text-decoration: none;
+    }
 
 @media (max-width: 768px) {
     .selected-project-info {

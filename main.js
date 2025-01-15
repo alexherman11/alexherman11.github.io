@@ -1,4 +1,4 @@
-import '/webmap-style.css';
+import './webmap-style.css';
 import Map from 'ol/Map.js';
 import OSM from 'ol/source/OSM.js';
 import TileLayer from 'ol/layer/Tile.js';
