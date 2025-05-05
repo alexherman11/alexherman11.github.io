@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTO Motor System</title>
+    <link rel="stylesheet" href="../project-info.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightElement(block);
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">OTO Project</div>
+    </header>
+
+    <aside>
+        <h2>Menu</h2>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#hardware">Hardware</a></li>
+                <li><a href="#software">Software</a></li>
+                <li><a href="#github">GitHub</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>OTO Modular Motor System</h1>
+        <p>
+            The OTO Motor System is a comprehensive modular motor control solution designed for robotics applications. 
+            Working in a team of three, our goal was to create a smart, interconnected motor control system that's both powerful 
+            and easy to use. This project involved designing custom hardware and firmware to provide precise control of motors 
+            with features like PID control, I2C connectivity, and a user-friendly setup interface.
+        </p>
+        <p>
+            As part of the hardware and software team, I focused on developing critical components of both the hardware and 
+            software systems, helping bring this complex project to life. This experience greatly improved my skills in 
+            embedded systems design, control theory implementation, and collaborative engineering in a team environment.
+        </p>
+
+        <h2 id="overview">Project Overview</h2>
+        <img src="/images/OTO/oto_board.jpg" alt="OTO Board" style="width: 40%;">
+        <p>
+            The OTO Motor System features custom-designed PCBs that provide all the necessary hardware to control a motor with 
+            precision using PID control. Each board includes sensors for current and voltage measurement, quadrature encoder 
+            input for position feedback, and I2C connectivity to allow multiple motors to be daisy-chained and controlled from a 
+            master device. The boards also include a microcontroller (RP2040) running our custom firmware that handles all the 
+            complex control algorithms and communications.
+        </p>
+
+        <h2 id="hardware">Hardware Development</h2>
+        <p>
+            During my work on the hardware side of the project, I made several key contributions:
+        </p>
+        <ul>
+            <li>Soldered the power supply components onto the REV1 bare board, allowing us to test the voltages across the board. This required 
+            precision soldering using a microscope and fine-tipped soldering iron for accurate component placement.</li>
+            <li>Performed hardware testing and debugging, including identifying and correcting issues with diode placement and pin configurations.</li>
+            <li>Worked on hardware integration, ensuring the motor control board could properly interface with motors and encoder systems.</li>
+            <li>Participated in Rev2 hardware planning, suggesting improvements based on our testing experiences with the Rev1 board.</li>
+        </ul>
+        
+        <h2 id="software">Software Development</h2>
+        <p>
+            My primary software contributions included:
+        </p>
+        <ul>
+            <li>Built and tested full PID control with programmable coefficients, later developing an auto-tuning function from the ground up
+                for optimal motor response. 
+            </li>
+            <li>Developed a current and voltage sensor driver for the INA228 sensor, creating functions to access current and voltage 
+            measurements that are crucial for motor protection and performance monitoring.</li>
+            <li>Designed and implemented a terminal-based motor setup interface using VT100 commands to provide a clean, user-friendly 
+            way to configure and monitor connected motors.</li>
+            <li>Worked on hardware integration by ensuring our software could properly control the motor using the Rev1 board, addressing 
+            pin declaration conflicts, and troubleshooting motor control issues.</li>
+        </ul>
+        
+        <div class="code-sample">
+            <h3>Auto Tuning Example Code</h3>
+            <pre><code class="language-c">void tunePID(void) {
+void tunePID(void) {
+    printf("Starting PID auto-tuning...\n");
+
+    // Start at a certain high gain; vary as needed
+    Kp = 0.0;
+    target_position = STEP_INPUT;
+
+    // Wait or run the loop for some time to see if it converges to stable oscillation
+    while(!is_ultimate_gain) {
+        num_crossings = 0; idx = 0; cross_idx = 0;
+        Kp += 0.5; 
+        still_count = 0;
+        last_crossing_time = to_ms_since_boot(get_absolute_time()); // make sure crossing time reference is correct
+
+        if (target_position == STEP_INPUT) {
+            target_position = 0;
+        } else {
+            target_position = STEP_INPUT;    
+        }
+
+        // keep sampling in a loop
+        for (uint32_t sample = 0; sample < NUM_SAMPLES; sample++) {
+            sample_position();
+            check_for_zero_crossing();
+            if (check_no_movement() || (num_crossings == MAX_CROSSINGS)) {
+                break;
+            }
+            idx += 1;
+            busy_wait_ms(1);
+        }
+        is_ultimate_gain = is_steady_oscillation();
+
+        printf(">Kp vs. Num_Crossings:%f:%d|xy\n", Kp, num_crossings);
+        for(int i = 0; i < num_crossings; i++) {
+            
+        }
+    }
+
+    printf("We found it!");
+
+    // Now we are in stable oscillation
+    // Compute average crossing period
+    float crossing_period = 0; 
+    for (int i = cross_idx - MIN_AMPLITUDES; i < cross_idx; i++) {
+        crossing_period += crossing_periods[i];
+    }
+
+    printf(">Crossing Period: %d\n", crossing_period);
+
+    crossing_period /= MIN_AMPLITUDES;
+    float Pu = crossing_period * 2.0f; // zero-crossing sees half a cycle (and ms->s)
+    float Ku = Kp;
+    
+    //   Ziegler-Nichols:
+    Kp = 0.6 * Ku;
+    Ki = 1.2 * Ku / Pu;
+    Kv = 3.0 * Ku * Pu / 40;
+
+    printf(">Kp: %f\n>Ki: %f\n>Kv: %f\n", Kp, Ki, Kv);
+}
+            </code></pre>
+        </div>
+
+        <h2>Challenges and Solutions</h2>
+        <p>
+            Throughout the project, we faced numerous challenges:
+        </p>
+        <ul>
+            <li><strong>Hardware Debugging:</strong> When testing the Rev1 board, we encountered issues with the board not appearing 
+            as a USB device when connected to a computer. After extensive testing, we discovered that connection to the unregulated 
+            power supply was causing issues when attempting to flash the board.</li>
+            <li><strong>Pin Remapping:</strong> We faced issues with GPIO slices misconfiguration due to pin remapping, resulting in the 
+            failure of PID control and one of the motor control outputs.</li>
+            <li><strong>Code Organization:</strong> Initially, the PID functions were blocking other functions from being called in the 
+            main code on core 0 of the MCU. We resolved this by reorganizing the code and utilizing the dual-core architecture of the RP2040.</li>
+            <li><strong>I2C Communication:</strong> One of our ongoing challenges was establishing reliable I2C communication between multiple motor controllers.</li>
+        </ul>
+
+        <h2>What I Learned</h2>
+        <p>
+            This project provided valuable learning experiences in several areas:
+        </p>
+        <ul>
+            <li>Advanced understanding of PID control systems and their implementation in embedded systems</li>
+            <li>Hardware design considerations for motor control circuits</li>
+            <li>Debugging techniques for complex embedded systems</li>
+            <li>Creating user interfaces for terminal-based applications</li>
+            <li>Working effectively in a team with different areas of expertise</li>
+            <li>Project management and milestone planning for hardware/software co-development</li>
+        </ul>
+                
+        <h2 id="github">Project Code</h2>
+        <p>
+            Unfortunately this code is not open source and our client Tyler 
+            has not given us permission to display our work. 
+        </p>
+        
+    </main>
+
+    <footer>
+        <p>OTO Modular Motor System Project</p>
+    </footer>
+</body>
+</html>
