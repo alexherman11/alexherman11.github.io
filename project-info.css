@@ -138,4 +138,62 @@ footer {
         display: inline-block;
         margin-top: 1em;
     }
+
+    /* Code Sample Styling - Sidebar Aware */
+    .code-sample {
+        margin: 2rem 0;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: #f8f8f8;
+        border: 1px solid #e0e0e0;
+        width: 100%; /* Takes full width of its container */
+        box-sizing: border-box;
+    }
+
+    .code-sample h3 {
+        margin: 0;
+        padding: 0.75rem 1rem;
+        background-color: #2b5d60;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .code-sample pre {
+        margin: 0;
+        padding: 1rem;
+        overflow-x: auto; /* Enables horizontal scrolling if needed */
+        font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        background-color: #1e1e1e;
+        color: #d4d4d4;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Adjust line length for optimal readability */
+    .code-sample code {
+        display: inline-block; /* This helps control the content width */
+        min-width: 650px; /* Minimum width for good code display */
+        max-width: 100%; /* Ensures it doesn't break the layout */
+    }
+
+    /* Media query to handle the responsive breakpoint where sidebar becomes hidden */
+    @media screen and (max-width: 768px) {
+        .code-sample {
+            /* For mobile, where sidebar is typically hidden */
+            width: 100%;
+        }
+        
+        .code-sample code {
+            min-width: auto; /* Let it flow naturally on small screens */
+        }
+        
+        .code-sample pre {
+            font-size: 0.75rem; /* Slightly smaller font on mobile */
+        }
+    }
 }
