@@ -36,25 +36,27 @@
     <main>
         <h1>OTO Modular Motor System</h1>
         <p>
-            The OTO Motor System is a comprehensive modular motor control solution designed for robotics applications. 
+            The Otomotor (/auto-motor/) is a modular motor control solution designed for varying robotics applications from 
+            classroom learning to assembly line automation. 
             Working in a team of three, our goal was to create a smart, interconnected motor control system that's both powerful 
             and easy to use. This project involved designing custom hardware and firmware to provide precise control of motors 
             with features like PID control, I2C connectivity, and a user-friendly setup interface.
         </p>
         <p>
             As part of the hardware and software team, I focused on developing critical components of both the hardware and 
-            software systems, helping bring this complex project to life. This experience greatly improved my skills in 
+            software systems, helping bring this complex project to life. This was a transformative experience that greatly improved my skills in 
             embedded systems design, control theory implementation, and collaborative engineering in a team environment.
         </p>
 
         <h2 id="overview">Project Overview</h2>
         <img src="/images/OTO/oto_board.jpg" alt="OTO Board" style="width: 40%;">
         <p>
-            The OTO Motor System features custom-designed PCBs that provide all the necessary hardware to control a motor with 
-            precision using PID control. Each board includes sensors for current and voltage measurement, quadrature encoder 
+            The Otomotor is a custom designed PCB that provides all the necessary hardware to control a motor with 
+            precision PID control. Each board includes sensors for current and voltage measurement, quadrature encoder 
             input for position feedback, and I2C connectivity to allow multiple motors to be daisy-chained and controlled from a 
-            master device. The boards also include a microcontroller (RP2040) running our custom firmware that handles all the 
-            complex control algorithms and communications.
+            master device. The boards run an RP2040 on multiple threads to handle the complex PID control as well as I2C communication
+            and pairing. We engineered the device to be compatible with any master controller and I2C library, making it easy for 
+            a user to insert their own interface.
         </p>
 
         <h2 id="hardware">Hardware Development</h2>
@@ -62,8 +64,9 @@
             During my work on the hardware side of the project, I made several key contributions:
         </p>
         <ul>
-            <li>Soldered the power supply components onto the REV1 bare board, allowing us to test the voltages across the board. This required 
-            precision soldering using a microscope and fine-tipped soldering iron for accurate component placement.</li>
+            <li>Designed the Rev1 schematic, building up components like the current and voltage sensor, buck converter, and power train.</li>
+            <li>Soldered the power supply components onto the REV1 bare board, allowing us to test the voltages across the board before we recieved
+                populated boards. This required precision soldering using a microscope and fine-tipped soldering iron for accurate component placement.</li>
             <li>Performed hardware testing and debugging, including identifying and correcting issues with diode placement and pin configurations.</li>
             <li>Worked on hardware integration, ensuring the motor control board could properly interface with motors and encoder systems.</li>
             <li>Participated in Rev2 hardware planning, suggesting improvements based on our testing experiences with the Rev1 board.</li>
@@ -163,7 +166,8 @@ void tunePID(void) {
             failure of PID control and one of the motor control outputs.</li>
             <li><strong>Code Organization:</strong> Initially, the PID functions were blocking other functions from being called in the 
             main code on core 0 of the MCU. We resolved this by reorganizing the code and utilizing the dual-core architecture of the RP2040.</li>
-            <li><strong>I2C Communication:</strong> One of our ongoing challenges was establishing reliable I2C communication between multiple motor controllers.</li>
+            <li><strong>I2C Communication:</strong> One of our ongoing challenges was establishing reliable I2C communication between multiple motor controllers 
+            and troubleshooting issues in a large codebase. </li>
         </ul>
 
         <h2>What I Learned</h2>
@@ -181,8 +185,7 @@ void tunePID(void) {
                 
         <h2 id="github">Project Code</h2>
         <p>
-            Unfortunately this code is not open source and our client Tyler 
-            has not given us permission to display our work. 
+            Unfortunately this code is not open source.
         </p>
         
     </main>
