@@ -17,40 +17,65 @@
             <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="#tablet">Design</a></li>
+                <li><a href="#mywork">My Work</a></li>
                 <li><a href="#software">Code</a></li>
+                <li><a href="#TOM>TOM">TOM</a></li>
             </ul>
         </nav>
     </aside>
 
     <main>
-        <h1>Foot Mouse for Sally (In Progress)</h1>
+        <h1>Foot Mouse for Sally</h1>
         <p>
             
         </p>
         <p>
-            This year I was selected as a hardware engineering lead for the accessible design club, Empower. Specifically 
-            I'm working on building a foot mouse for someone who has no ability to use their hands but works on a computer 
-            most of the day as part of their job. Five other bright engineers and I will design, prototype, and deliver a product by the end of the winter quarter. 
+            In Fall 2024 I was selected as a hardware engineering lead for the accessible design club, Empower. Specifically 
+            I worked on building a foot mouse for Sally, a kind woman who suffered from bilateral epicondylitis (tennis elbow) which prevents
+            her from typing on a computer without pain. Along with 5 other engineers, I designed, prototyped, and delivered a product that 
+            not only was able to help sally, but also was deployed as a part of the TOM Global Maker Challenge where it recieved an 
+            honorable mention in the Daily Living category. 
         </p>
 
         <h2 id="tablet">The Design</h2>
         
         <p>
             A very important part of this club is that it creates real world impact. Working with Sally has been interesting and also challenging, and has given me insight into 
-            aspects of what it must be like to build a product for a customer. Sally has no functional use of her hands (without pain), and has been using a combination of 
-            text to speech, auto-scrollers, and a foot mouse called the Footime. When the Footime finally kicked the bucket, Sally was left without many options and 
-            sought help from our club, requesting the exact same functionality that she had relied on before. In a sense this is easy, because we only are required to emulate the 
-            click, scroll, and move functionality. However, in another sense this is challenging because eye tracking, macro keys, and customization would be so cool to add (spring quarter project?).
+            aspects of what it must be like to build a product for a customer. Sally has been using a combination of 
+            text to speech, auto-scrollers, and a foot mouse called the Footime. Recently, when the Footime became inoperable and unrepairable, Sally was left without many options and 
+            sought help from our club, requesting the exact same functionality that she had relied on before. In a sense this was easy because we only were required to emulate the 
+            click, scroll, and move-cursor functionality. However, in another sense challenging because eye tracking, macro keys, and customization would be so cool to add (future development?).
+        </p>
+
+        <h2 id="mywork">My Work</h2>
+        <p>
+            I began by assessing the overall structure of the device and building a simple prototype of the click and scroll 
+            functionality. We used simple push buttons and breadboard wires that were connected around the device. 
+            This came together quickly and we soon had the bare bones of a mouse. After that, I moved onto the mouse sensor, which was 
+            much more challenging. Due to the lack of available mouse sensors online I opted for a custom built housing around
+            the PMW3360. A high end gaming sensor, its is actually far more advanced than what is required in our project, but whose 
+            breadboard headers and defined SPI functionality would ultiamtely save countless hours on integration. After 
+            adjusting the sensitity and settling on a polling approach over interrupts, we configured and connected the mouse sensor with success.
         </p>
         <p>
-            As we are in the early stages of this project currently, I do not have much to show for our product. However, we have begun inital tests of potentiometers and switches connected to an Arduino Leonardo. We selected components that would be 
-            easy for less experienced members to get the feel of, and chose to use an Arduino for the rich online community of tutorials and help content. We are working within a fixed budget supplied by the club, and also the specific engineering and design requirements as noted by sally and our team.
+            The biggest challenge I faced during this project came when it was time to tie everything together. It was when I switched
+            from breadboard wires to insulated tubing that things started to break down. After I spent hours crimping on male and female headers
+            to connect the mouse sensor, it was completely failing to operate correctly. The cursor would incessantly pull toward some 
+            corner of the screen and an analysis of the data log showed what seemed to be random values. I connected and 
+            reconnected each wire multiple times to no avail. Ultimately I suspected some larger issue and guessed that the long, parallel 
+            power and data lines within the wire sheathing may have been interfering. After completely rewiring with single stranded wire
+            and the utmost care, I got it working just in time for our Banquet presentation. 
         </p>
            
         <h2 id="software">GitHub</h2>
         <p>
-            As we begin to write code it will show up  
-            <a href="https://github.com/Foot-Mouse-For-Sally">here.</a>
+            Take a look at my code 
+            <a href="https://github.com/Foot-Mouse-for-Sally/Foot-Mouse-For-Sally">here.</a>
+        </p>
+        <h2 id="TOM">TOM Design Challenge</h2>
+        <p> 
+            *In progress* See how our product would look to someone attempting to build this device themselves 
+            <a href="https://tomglobal.org/project?id=67acf83630ee740012debfff">here.</a>
         </p>
         
         
