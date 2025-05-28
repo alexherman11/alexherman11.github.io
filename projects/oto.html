@@ -123,7 +123,7 @@ void tunePID(void) {
         }
         is_ultimate_gain = is_steady_oscillation();
 
-        printf(">Kp vs. Num_Crossings:%f:%d|xy\n", Kp, num_crossings);
+        printf(">Kp vs. Num_Crossings:%f:%d|xy\n", Kp, num_crossings); // <-- this strange formatting is for a serial plotter to display the tuning progress.
         for(int i = 0; i < num_crossings; i++) {
             
         }
@@ -185,7 +185,7 @@ void tunePID(void) {
                 
         <h2 id="github">Project Code</h2>
         <p>
-            Unfortunately this code is not open source.
+            Unfortunately this code is not open source, but for a more detailed look at our project see our <a target="_blank" href="../pdf/alpha_design_report.pdf">Alpha Design Report.</a>
         </p>
         
     </main>
