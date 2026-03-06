@@ -1,65 +1,4 @@
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    color: #333;
-    background: #f9fdfc; /* Light and airy background */
-}
-
-/* Palette: Light Blue & Moss Green */
-:root {
-    --light-blue: #aee0f1;
-    --moss-green: #7fbf7f;
-    --dark-text: #333;
-    --heading-color: #2b5d60;
-    --border-color: #b6d3c5;
-}
-
-.logo {
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-decoration: none;
-    letter-spacing: 1px;
-    transition: color 0.3s, background 0.3s;
-}
-
-.logo:hover {
-    color: #ddd; /* Slightly lighter color on hover */
-}
-
-header {
-    background: #1c1c1c;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.75rem 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-nav li {
-    margin: 0 0.75rem;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
-    transition: background 0.3s;
-}
-
-nav a:hover {
-    background: #333;
-}
+/* About Page Styles - RPG Theme */
 
 main {
     max-width: 1000px;
@@ -67,27 +6,21 @@ main {
     padding: 2rem 1rem;
 }
 
-/* Round/friendly elements */
-img {
-    border-radius: 8px;
-}
-
 /* Intro Section */
 .intro {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     gap: 2rem;
-    background: var(--light-blue);
-    border-radius: 8px;
-    padding: 2rem;
     margin-bottom: 2rem;
 }
 
 .intro .profile-pic {
-    width: 400px;
+    width: 350px;
     height: auto;
-    border: 4px;
+    border-radius: 0;
+    border: 4px solid var(--border-outer);
+    box-shadow: 0 0 12px rgba(136,136,204,0.4);
 }
 
 .intro .text-area {
@@ -96,13 +29,12 @@ img {
 
 .intro h1 {
     margin: 0 0 1rem;
-    font-size: 2.5rem;
-    color: var(--heading-color);
 }
 
 .intro p {
     line-height: 1.7;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    font-family: 'VT323', monospace;
 }
 
 /* Interests Section */
@@ -110,15 +42,10 @@ img {
     margin-bottom: 2rem;
 }
 
-.interests h2 {
-    font-size: 2rem;
-    color: var(--heading-color);
-    margin-bottom: 1rem;
-}
-
 .interests p {
     line-height: 1.7;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    font-family: 'VT323', monospace;
 }
 
 /* Ocean Passion Section */
@@ -126,9 +53,6 @@ img {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    background: #cfe2de;
-    border-radius: 8px;
-    padding: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -140,57 +64,59 @@ img {
 .ocean-pic {
     width: 300px;
     height: auto;
-    object-fit:fill;
+    object-fit: fill;
+    border-radius: 0;
+    border: 4px solid var(--border-outer);
 }
 
 .ocean-passion .ocean-text {
     flex: 1;
 }
 
-.ocean-passion h2 {
-    font-size: 2rem;
-    color: var(--heading-color);
-    margin-bottom: 1rem;
-}
-
 .ocean-passion p {
     line-height: 1.7;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
+    font-family: 'VT323', monospace;
 }
 
-/* Footer */
-footer {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: transparent;
-    border: none;
-}
-
-footer hr {
-    border: none;
-    border-top: 1px solid var(--border-color);
-    margin: 0 0 1rem;
-}
-
-a {
-    text-decoration: none
-}
-
-.footer-content {
+/* Footer RPG (reused from style.css) */
+.footer-rpg {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: 1rem;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
 }
 
-.social-icons img {
-    width: 20px;
-    height: auto;
-    margin-left: 0.5rem;
+.footer-label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: var(--heading-color);
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
-.social-icons img:hover {
-    transform: scale(1.1);
+.footer-left, .footer-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-links a {
+    color: var(--link-color);
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+}
+
+/* Round/friendly elements override for images */
+img {
+    border-radius: 0;
 }
 
 /* Responsive Design */
@@ -202,5 +128,11 @@ a {
 
     .ocean-pic, .profile-pic {
         margin-bottom: 1rem;
+        max-width: 100%;
+    }
+
+    .footer-rpg {
+        flex-direction: column;
+        gap: 1rem;
     }
 }

@@ -2,49 +2,55 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230a0a2e'/><rect x='4' y='4' width='2' height='2' fill='%23ffcc00'/><rect x='10' y='4' width='2' height='2' fill='%23ffcc00'/><rect x='3' y='9' width='10' height='2' fill='%23ffcc00'/><rect x='5' y='11' width='6' height='2' fill='%23ffcc00'/></svg>">
+<link rel="stylesheet" href="retro-base.css" />
 <link rel="stylesheet" href="style.css" />
 <title>Alex</title>
 </head>
 <body>
-    <section class = "wrapper">
+    <section class="wrapper">
         <header>
-            <div class="logo">Alex Herman</div>
+            <a href="index.html" class="logo">ALEX HERMAN</a>
             <nav>
                 <ul>
-                    <li><a href="about.html" title="About">About</a></li>
-                    <li><a href="projects.html" title="Projects">Projects</a></li>
-                    <li><a href="resume.html" title="Resume">Resume</a></li>
+                    <li><a href="about.html" title="Status">Status</a></li>
+                    <li><a href="projects.html" title="Quests">Quests</a></li>
+                    <li><a href="resume.html" title="Stats">Stats</a></li>
                 </ul>
             </nav>
         </header>
 
-        <section class="hero" id="about">
+        <section class="hero rpg-window" id="about">
             <div class="hero-content">
-                <img src="images/Me/alex_profile.jpg" alt="Alex's Photo" class="hero-photo">
+                <div class="hero-photo-wrapper">
+                    <img src="images/Me/alex_profile.jpg" alt="Alex's Photo" class="hero-photo">
+                    <span class="level-label">LV 22</span>
+                </div>
                 <div class="hero-text">
-                    <h1>Hi, my name is Alex.</h1>
+                    <h1 id="hero-heading">Hi, my name is Alex.</h1>
                     <p>
-                        I'm currently pursuing a degree in Computer Engineering from Cal Poly. I have experience with 
+                        I'm currently pursuing a degree in Computer Engineering from Cal Poly. I have experience with
                         STM32 Microcontrollers, Embedded Programming in C, and Python. I also like plants.
                     </p>
                 </div>
             </div>
         </section>
 
+        <p class="press-start"><a href="projects.html">- PRESS START -</a></p>
+
         <section class="projects" id="projects">
-            <h2>Recent Projects</h2>
+            <h2>RECENT QUESTS</h2>
             <div class="project-list">
                 <!-- OTO Motor Project -->
-                <a href="projects/oto.html" class="project" style="text-decoration: none; color: inherit;">
+                <a href="projects/oto.html" class="project rpg-window" style="text-decoration: none; color: inherit;">
                     <div>
                         <h3>OTO Modular Motor System</h3>
                         <p>A smart motor control system featuring advanced PID control, I2C connectivity, and an interactive setup interface for robotics applications.</p>
                     </div>
                 </a>
                 <!-- BeatBox -->
-                <a href="projects/beatbox.html" class="project" style="text-decoration: none; color: inherit;">
+                <a href="projects/beatbox.html" class="project rpg-window" style="text-decoration: none; color: inherit;">
                     <div>
                         <h3>BeatBox</h3>
                         <p>An STM32-based UART application to make simple beat tracks that play on a connected
@@ -52,7 +58,7 @@
                     </div>
                 </a>
                 <!-- Foot Mouse for Sally -->
-                <a href="projects/footmouse.html" class="project" style="text-decoration: none; color: inherit;">
+                <a href="projects/footmouse.html" class="project rpg-window" style="text-decoration: none; color: inherit;">
                     <div>
                         <h3>Foot Mouse for Sally</h3>
                         <p>Designing a computer accessibility solution for Sally, a woman with impaired hand movement.</p>
@@ -61,24 +67,22 @@
             </div>
         </section>
         <footer>
-            <hr>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem;">
-                <div style="font-size: 0.9rem;">
+            <div class="footer-rpg">
+                <div class="footer-left">
+                    <span class="footer-label">SAVE POINT</span>
                     <span>1wheelalex@gmail.com</span>
                 </div>
-                <div>
-                    <a href="https://instagram.com/alex.herman101" target="_blank" style="margin-right: 0.5rem;">
-                        <img src="images/icons/instagram-icon.svg" alt="Instagram" style="width:20px;height:auto;">
-                    </a>
-                    <a href="https://github.com/alexherman11" target="_blank" style="margin-right: 0.5rem;">
-                        <img src="images/icons/github-icon.svg" alt="GitHub" style="width:20px;height:auto;">
-                    </a>
-                    <a href="https://linkedin.com/in/alex-herman04" target="_blank">
-                        <img src="images/icons/linkedin-icon.svg" alt="LinkedIn" style="width:20px;height:auto;">
-                    </a>
+                <div class="footer-right">
+                    <span class="footer-label">PARTY LINKS</span>
+                    <div class="footer-links">
+                        <a href="https://instagram.com/alex.herman101" target="_blank">Instagram</a>
+                        <a href="https://github.com/alexherman11" target="_blank">GitHub</a>
+                        <a href="https://linkedin.com/in/alex-herman04" target="_blank">LinkedIn</a>
+                    </div>
                 </div>
             </div>
         </footer>
     </section>
+    <script src="retro-effects.js" defer></script>
 </body>
 </html>

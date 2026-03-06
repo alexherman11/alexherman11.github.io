@@ -4,75 +4,79 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>About Me</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230a0a2e'/><rect x='4' y='4' width='2' height='2' fill='%23ffcc00'/><rect x='10' y='4' width='2' height='2' fill='%23ffcc00'/><rect x='3' y='9' width='10' height='2' fill='%23ffcc00'/><rect x='5' y='11' width='6' height='2' fill='%23ffcc00'/></svg>">
+<link rel="stylesheet" href="retro-base.css">
 <link rel="stylesheet" href="about-style.css">
 </head>
 <body>
 
 <header>
-    <a href="index.html" class="logo">Alex Herman</a>
+    <a href="index.html" class="logo">ALEX HERMAN</a>
     <nav>
         <ul>
-            <li><a href="about.html" title="About" class="header-button">About</a></li>
-            <li><a href="projects.html" title="Projects" class="header-button">Projects</a></li>
-            <li><a href="resume.html" title="Resume" class="header-button">Resume</a></li>
+            <li><a href="about.html" title="Status">Status</a></li>
+            <li><a href="projects.html" title="Quests">Quests</a></li>
+            <li><a href="resume.html" title="Stats">Stats</a></li>
         </ul>
     </nav>
 </header>
-    
 
 <main>
-    <section class="intro">
+    <section class="intro rpg-window">
         <div class="photo-area">
-            <!-- Suggestion for the photo: A friendly portrait outdoors, perhaps standing along a coastal trail or near gentle ocean waves. -->
             <img src="images/Me/alex_smiling.jpg" alt="A portrait of me smiling near the ocean" class="profile-pic">
         </div>
         <div class="text-area">
-            <h1>Hello, I’m Alex.</h1>
+            <h1>Hello, I'm Alex.</h1>
             <p>
-                I am currently a Computer Engineer at Cal Poly and Captain of the Ultimate Frisbee Team. I have experience working with Python, Embedded C, and kids. I was a beach lifeguard in Santa Cruz for four years and 
-                a Junior Guard for nine before that. I am an avid explorer of 
-                earth and sea, and love the challenges that lie in facing the unknown. 
+                I am currently a Computer Engineer at Cal Poly and Captain of the Ultimate Frisbee Team. I have experience working with Python, Embedded C, and kids. I was a beach lifeguard in Santa Cruz for four years and
+                a Junior Guard for nine before that. I am an avid explorer of
+                earth and sea, and love the challenges that lie in facing the unknown.
             </p>
+            <div class="character-stats">
+                <div class="stat-row"><span class="stat-label">CLASS:</span> Computer Engineer</div>
+                <div class="stat-row"><span class="stat-label">GUILD:</span> Cal Poly SLO</div>
+                <div class="stat-row"><span class="stat-label">RANK:</span> Frisbee Captain</div>
+                <div class="stat-row"><span class="stat-label">SKILLS:</span> STM32, C, Python</div>
+            </div>
         </div>
     </section>
 
-    <section class="interests">
-        <h2>Who I Am</h2>
+    <section class="interests rpg-window">
+        <h2>CHARACTER LORE</h2>
         <p>
             I am curious. I like looking and listening and finding out how things work. I love imagining
             what it must have been like to be Capernicus understanding the relative masses
-            of celestial bodies for the first time, or Kekulé realizing that hydrocarbon chains could rap around. 
-            While it is very unlikely that I will discover the next field of 
-            scientific innovation, its not impossible. 
+            of celestial bodies for the first time, or Kekule realizing that hydrocarbon chains could rap around.
+            While it is very unlikely that I will discover the next field of
+            scientific innovation, its not impossible.
             Just like how the Yucca Moth cant survive
             without the Yucca Plant and the Yucca Plant cant survive without the Yucca Moth, I believe there are incredible
-            relationships waiting to be discovered all around us. 
+            relationships waiting to be discovered all around us.
         </p>
     </section>
 
 
-    <section class="ocean-passion">
+    <section class="ocean-passion rpg-window">
         <div class="ocean-photo-area">
-            <!-- Suggestion for the photo: A candid shot of me at the beach, perhaps examining tide pools or holding a small note/sketchpad. -->
             <img src="images/Me/flowers.png" alt="A sunset along the big sur coast" class="ocean-pic">
         </div>
         <div class="ocean-text">
-            <h2>What Matters to Me?</h2>
+            <h2>QUEST MOTIVATION</h2>
             <p>
-                Having grown up by the ocean, I've seen firsthand how much the environment has changed, 
-                even in my short lifetime. Twice in the past three years, massive waves from record-breaking 
-                storms have torn apart our coastlines. Warming waters have made algal blooms more frequent, 
+                Having grown up by the ocean, I've seen firsthand how much the environment has changed,
+                even in my short lifetime. Twice in the past three years, massive waves from record-breaking
+                storms have torn apart our coastlines. Warming waters have made algal blooms more frequent,
                 while invasive species encroach on already stressed ecosystems. I believe it is deeply unfortunate that
-                we are cutting back funding from some of the most important research we can possibly be doing - finding ways 
-                to keep the Earth our home. 
+                we are cutting back funding from some of the most important research we can possibly be doing - finding ways
+                to keep the Earth our home.
             </p>
             <p>
-                While we live away our lives inside little tin boxes with our harnessed magic (electricity), we have grown scared of the world around us. 
-                I care about helping people and helping people help themselves. Now that I've spent years in university learning the 
+                While we live away our lives inside little tin boxes with our harnessed magic (electricity), we have grown scared of the world around us.
+                I care about helping people and helping people help themselves. Now that I've spent years in university learning the
                 dark arts that underly the endlessly mysterious technologies of our today, I'm looking for ways to take back
                 the world from the hands of massive corporations that would rather use this power to steal, silence, and sheppherd sheeplike consumers
-                who are hardly aware of the dangers they face. I am interested in joining others like myself doing any sort of work anywhere 
+                who are hardly aware of the dangers they face. I am interested in joining others like myself doing any sort of work anywhere
                 I would be able to learn and grow.
             </p>
         </div>
@@ -80,24 +84,21 @@
 </main>
 
 <footer>
-    <hr>
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem;">
-        <div style="font-size: 0.9rem;">
+    <div class="footer-rpg">
+        <div class="footer-left">
+            <span class="footer-label">SAVE POINT</span>
             <span>1wheelalex@gmail.com</span>
         </div>
-        <div>
-            <a href="https://instagram.com/alex.herman101" target="_blank" style="margin-right: 0.5rem;">
-                <img src="images/icons/instagram-icon.svg" alt="Instagram" style="width:20px;height:auto;">
-            </a>
-            <a href="https://github.com/alexherman11" target="_blank" style="margin-right: 0.5rem;">
-                <img src="images/icons/github-icon.svg" alt="GitHub" style="width:20px;height:auto;">
-            </a>
-            <a href="https://linkedin.com/in/alex-herman04" target="_blank">
-                <img src="images/icons/linkedin-icon.svg" alt="LinkedIn" style="width:20px;height:auto;">
-            </a>
+        <div class="footer-right">
+            <span class="footer-label">PARTY LINKS</span>
+            <div class="footer-links">
+                <a href="https://instagram.com/alex.herman101" target="_blank">Instagram</a>
+                <a href="https://github.com/alexherman11" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/alex-herman04" target="_blank">LinkedIn</a>
+            </div>
         </div>
     </div>
 </footer>
-
+<script src="retro-effects.js" defer></script>
 </body>
 </html>

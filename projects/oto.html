@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTO Motor System</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230a0a2e'/><rect x='4' y='4' width='2' height='2' fill='%23ffcc00'/><rect x='10' y='4' width='2' height='2' fill='%23ffcc00'/><rect x='3' y='9' width='10' height='2' fill='%23ffcc00'/><rect x='5' y='11' width='6' height='2' fill='%23ffcc00'/></svg>">
+    <link rel="stylesheet" href="../retro-base.css">
     <link rel="stylesheet" href="../project-info.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
@@ -17,10 +19,17 @@
 </head>
 <body>
     <header>
-        <div class="logo">OTO Project</div>
+        <a href="../index.html" class="logo">ALEX HERMAN</a>
+        <nav>
+            <ul>
+                <li><a href="../about.html" title="Status">Status</a></li>
+                <li><a href="../projects.html" title="Quests">Quests</a></li>
+                <li><a href="../resume.html" title="Stats">Stats</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <aside>
+    <aside class="rpg-window">
         <h2>Menu</h2>
         <nav>
             <ul>
@@ -31,31 +40,32 @@
                 <li><a href="#github">GitHub</a></li>
             </ul>
         </nav>
+        <div style="margin-top:1.5rem;font-family:'Press Start 2P',cursive;font-size:0.45rem;color:var(--accent-green);">QUEST STATUS: COMPLETE</div>
     </aside>
 
     <main>
         <h1>OTO Modular Motor System</h1>
         <p>
-            The Otomotor (/auto-motor/) is a modular motor control solution designed for varying robotics applications from 
-            classroom learning to assembly line automation. 
-            Working in a team of three, our goal was to create a smart, interconnected motor control system that's both powerful 
-            and easy to use. This project involved designing custom hardware and firmware to provide precise control of motors 
+            The Otomotor (/auto-motor/) is a modular motor control solution designed for varying robotics applications from
+            classroom learning to assembly line automation.
+            Working in a team of three, our goal was to create a smart, interconnected motor control system that's both powerful
+            and easy to use. This project involved designing custom hardware and firmware to provide precise control of motors
             with features like PID control, I2C connectivity, and a user-friendly setup interface.
         </p>
         <p>
-            As part of the hardware and software team, I focused on developing critical components of both the hardware and 
-            software systems, helping bring this complex project to life. This was a transformative experience that greatly improved my skills in 
+            As part of the hardware and software team, I focused on developing critical components of both the hardware and
+            software systems, helping bring this complex project to life. This was a transformative experience that greatly improved my skills in
             embedded systems design, control theory implementation, and collaborative engineering in a team environment.
         </p>
 
         <h2 id="overview">Project Overview</h2>
         <img src="/images/OTO/oto_board.jpg" alt="OTO Board" style="width: 40%;">
         <p>
-            The Otomotor is a custom designed PCB that provides all the necessary hardware to control a motor with 
-            precision PID control. Each board includes sensors for current and voltage measurement, quadrature encoder 
-            input for position feedback, and I2C connectivity to allow multiple motors to be daisy-chained and controlled from a 
+            The Otomotor is a custom designed PCB that provides all the necessary hardware to control a motor with
+            precision PID control. Each board includes sensors for current and voltage measurement, quadrature encoder
+            input for position feedback, and I2C connectivity to allow multiple motors to be daisy-chained and controlled from a
             master device. The boards run an RP2040 on multiple threads to handle the complex PID control as well as I2C communication
-            and pairing. We engineered the device to be compatible with any master controller and I2C library, making it easy for 
+            and pairing. We engineered the device to be compatible with any master controller and I2C library, making it easy for
             a user to insert their own interface.
         </p>
 
@@ -71,23 +81,23 @@
             <li>Worked on hardware integration, ensuring the motor control board could properly interface with motors and encoder systems.</li>
             <li>Participated in Rev2 hardware planning, suggesting improvements based on our testing experiences with the Rev1 board.</li>
         </ul>
-        
+
         <h2 id="software">Software Development</h2>
         <p>
             My primary software contributions included:
         </p>
         <ul>
             <li>Built and tested full PID control with programmable coefficients, later developing an auto-tuning function from the ground up
-                for optimal motor response. 
+                for optimal motor response.
             </li>
-            <li>Developed a current and voltage sensor driver for the INA228 sensor, creating functions to access current and voltage 
+            <li>Developed a current and voltage sensor driver for the INA228 sensor, creating functions to access current and voltage
             measurements that are crucial for motor protection and performance monitoring.</li>
-            <li>Designed and implemented a terminal-based motor setup interface using VT100 commands to provide a clean, user-friendly 
+            <li>Designed and implemented a terminal-based motor setup interface using VT100 commands to provide a clean, user-friendly
             way to configure and monitor connected motors.</li>
-            <li>Worked on hardware integration by ensuring our software could properly control the motor using the Rev1 board, addressing 
+            <li>Worked on hardware integration by ensuring our software could properly control the motor using the Rev1 board, addressing
             pin declaration conflicts, and troubleshooting motor control issues.</li>
         </ul>
-        
+
         <div class="code-sample">
             <h3>Auto Tuning Example Code</h3>
             <pre><code class="language-c">void tunePID(void) {
@@ -101,14 +111,14 @@ void tunePID(void) {
     // Wait or run the loop for some time to see if it converges to stable oscillation
     while(!is_ultimate_gain) {
         num_crossings = 0; idx = 0; cross_idx = 0;
-        Kp += 0.5; 
+        Kp += 0.5;
         still_count = 0;
         last_crossing_time = to_ms_since_boot(get_absolute_time()); // make sure crossing time reference is correct
 
         if (target_position == STEP_INPUT) {
             target_position = 0;
         } else {
-            target_position = STEP_INPUT;    
+            target_position = STEP_INPUT;
         }
 
         // keep sampling in a loop
@@ -125,7 +135,7 @@ void tunePID(void) {
 
         printf(">Kp vs. Num_Crossings:%f:%d|xy\n", Kp, num_crossings); // <-- this strange formatting is for a serial plotter to display the tuning progress.
         for(int i = 0; i < num_crossings; i++) {
-            
+
         }
     }
 
@@ -133,7 +143,7 @@ void tunePID(void) {
 
     // Now we are in stable oscillation
     // Compute average crossing period
-    float crossing_period = 0; 
+    float crossing_period = 0;
     for (int i = cross_idx - MIN_AMPLITUDES; i < cross_idx; i++) {
         crossing_period += crossing_periods[i];
     }
@@ -143,7 +153,7 @@ void tunePID(void) {
     crossing_period /= MIN_AMPLITUDES;
     float Pu = crossing_period * 2.0f; // zero-crossing sees half a cycle (and ms->s)
     float Ku = Kp;
-    
+
     //   Ziegler-Nichols:
     Kp = 0.6 * Ku;
     Ki = 1.2 * Ku / Pu;
@@ -159,14 +169,14 @@ void tunePID(void) {
             Throughout the project, we faced numerous challenges:
         </p>
         <ul>
-            <li><strong>Hardware Debugging:</strong> When testing the Rev1 board, we encountered issues with the board not appearing 
-            as a USB device when connected to a computer. After extensive testing, we discovered that connection to the unregulated 
+            <li><strong>Hardware Debugging:</strong> When testing the Rev1 board, we encountered issues with the board not appearing
+            as a USB device when connected to a computer. After extensive testing, we discovered that connection to the unregulated
             power supply was causing issues when attempting to flash the board.</li>
-            <li><strong>Pin Remapping:</strong> We faced issues with GPIO slices misconfiguration due to pin remapping, resulting in the 
+            <li><strong>Pin Remapping:</strong> We faced issues with GPIO slices misconfiguration due to pin remapping, resulting in the
             failure of PID control and one of the motor control outputs.</li>
-            <li><strong>Code Organization:</strong> Initially, the PID functions were blocking other functions from being called in the 
+            <li><strong>Code Organization:</strong> Initially, the PID functions were blocking other functions from being called in the
             main code on core 0 of the MCU. We resolved this by reorganizing the code and utilizing the dual-core architecture of the RP2040.</li>
-            <li><strong>I2C Communication:</strong> One of our ongoing challenges was establishing reliable I2C communication between multiple motor controllers 
+            <li><strong>I2C Communication:</strong> One of our ongoing challenges was establishing reliable I2C communication between multiple motor controllers
             and troubleshooting issues in a large codebase. </li>
         </ul>
 
@@ -182,16 +192,17 @@ void tunePID(void) {
             <li>Working effectively in a team with different areas of expertise</li>
             <li>Project management and milestone planning for hardware/software co-development</li>
         </ul>
-                
+
         <h2 id="github">Project Code</h2>
         <p>
             Unfortunately this code is not open source, but for a more detailed look at our project see our <a target="_blank" href="../pdf/alpha_design_report.pdf">Alpha Design Report.</a>
         </p>
-        
+
     </main>
 
     <footer>
         <p>OTO Modular Motor System Project</p>
     </footer>
+    <script src="../retro-effects.js" defer></script>
 </body>
 </html>

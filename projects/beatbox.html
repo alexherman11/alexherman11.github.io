@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The BeatBox</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230a0a2e'/><rect x='4' y='4' width='2' height='2' fill='%23ffcc00'/><rect x='10' y='4' width='2' height='2' fill='%23ffcc00'/><rect x='3' y='9' width='10' height='2' fill='%23ffcc00'/><rect x='5' y='11' width='6' height='2' fill='%23ffcc00'/></svg>">
+    <link rel="stylesheet" href="../retro-base.css">
     <link rel="stylesheet" href="../project-info.css">
 </head>
 <body>
     <header>
-        <div class="logo">The BeatBox</div>
+        <a href="../index.html" class="logo">ALEX HERMAN</a>
+        <nav>
+            <ul>
+                <li><a href="../about.html" title="Status">Status</a></li>
+                <li><a href="../projects.html" title="Quests">Quests</a></li>
+                <li><a href="../resume.html" title="Stats">Stats</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <aside>
+    <aside class="rpg-window">
         <h2>Menu</h2>
         <nav>
             <ul>
@@ -23,12 +32,13 @@
                 <li><a href="#Video-Demo">Video Demo</a></li>
             </ul>
         </nav>
+        <div style="margin-top:1.5rem;font-family:'Press Start 2P',cursive;font-size:0.45rem;color:var(--accent-green);">QUEST STATUS: COMPLETE</div>
     </aside>
 
     <main>
         <h1 id="about">The BeatBox Project</h1>
         <p>
-            For my Microcontrollers final design project, I made the BeatBox. Controlled by an STM32-Nucleo board, the BeatBox is a simple to use terminal-interfacing device for making simple four measure beats in the key of C with accompanying drum kit tracks. 
+            For my Microcontrollers final design project, I made the BeatBox. Controlled by an STM32-Nucleo board, the BeatBox is a simple to use terminal-interfacing device for making simple four measure beats in the key of C with accompanying drum kit tracks.
             The BeatBox is designed for modular usage, with the user able to select sounds for their drumkit simply by choosing from household objects like water glasses and boxes. Multiple features increase usability, like looping, screen reset, and three selectable preset drum kits.
         </p>
 
@@ -36,37 +46,38 @@
         <img src="../images/BeatBox/system-schematic.png" alt="System Schematic" style="width: 40%;">
         <p>
             Shown above, the STM32 interfaces over UART through the RX and TX pins, while the speaker and servo
-            are controlled via GPIO PWM. Both devices are powered using a 5V connection, and hopefully future iterations of 
-            the project will be battery powered for remote operation. 
+            are controlled via GPIO PWM. Both devices are powered using a 5V connection, and hopefully future iterations of
+            the project will be battery powered for remote operation.
         </p>
         <h2 id="software">Software Architecture</h2>
         <img src="../images/BeatBox/fsm.png" alt="Software FSM Diagram" style="float: right; margin-left: 10px; margin-bottom: 10px; width: 30%;">
         <p>
             The program uses a finite state machine (FSM) to manage user input, playback, and display coordination. It communicates via UART at 115,200 baud rate, supporting VT-100 escape codes for an interactive terminal interface.
-            The process of adding notes is relatively straightforward. As the user enters the 
+            The process of adding notes is relatively straightforward. As the user enters the
             notes in the form [Note][Measure][Start][Duration], the program creates a Note (a struct) and checks to see
             if that new note would interfere or overlap any existing notes. If it doesn't, it adds the note to the list
-            of all notes and draws the coresponding block characters onto the screen as shown in below. 
+            of all notes and draws the coresponding block characters onto the screen as shown in below.
         </p>
         <img src="../images/BeatBox/adding_notes.gif.gif" alt="Adding Notes gif" style="width: 50%;">
         <p>
-            Additionally drum kits can be added by cycling through K1-K3, each with their own unique sound. 
+            Additionally drum kits can be added by cycling through K1-K3, each with their own unique sound.
             While chosen out of convenience, the servo was a non-ideal choice for a drum. Not only is the servo slow to react
-            to changes in position (without the risk of stripping the gears), but it has limited range of motion meaning it is not 
+            to changes in position (without the risk of stripping the gears), but it has limited range of motion meaning it is not
             able to generate nearly the volume that might be expected of a proper drum kit. Nevertheless, the following demonstration
-            does show it playing kit two, on a water glass and empty box. 
+            does show it playing kit two, on a water glass and empty box.
         </p>
-        <img src="../images/BeatBox/drum-kits.gif" alt="drum kits gif" style = "width: 30%;">
+        <img src="../images/BeatBox/drum-kits.gif" alt="drum kits gif" style="width: 30%;">
         <h2 id="Video-Demo">Video Demo</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/tA8918O9Kkc?si=w0Mm8Uvvi1ix2yIO&amp;start=9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/tA8918O9Kkc?si=w0Mm8Uvvi1ix2yIO&amp;start=9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: 3px solid var(--border-outer);"></iframe>
         <p>
-            The code for this project should be up on my GitHub soon, but <a href="../pdf/P3 - Final Project.pdf" target="_blank" rel="noopener noreferrer">here</a> is a link to the report which includes the code and a user manual. 
+            The code for this project should be up on my GitHub soon, but <a href="../pdf/P3 - Final Project.pdf" target="_blank" rel="noopener noreferrer">here</a> is a link to the report which includes the code and a user manual.
         </p>
-        
+
     </main>
 
     <footer>
-        <p>&copy; 2024 Alex Herman | BeatBox Project</p>
+        <p>Alex Herman | BeatBox Project</p>
     </footer>
+    <script src="../retro-effects.js" defer></script>
 </body>
 </html>

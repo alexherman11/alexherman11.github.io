@@ -1,10 +1,4 @@
-/* General Styles */
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    color: #333;
-    background: #f9f9f9;
-}
+/* Projects Page Styles - RPG Theme */
 
 html, body {
     height: 100%;
@@ -26,51 +20,11 @@ main {
     padding: 1rem;
 }
 
-header {
-    background: #1c1c1c;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.75rem 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-decoration: none;
-    letter-spacing: 1px;
-    transition: color 0.3s, background 0.3s;
-}
-
-.logo:hover {
-    color: #ddd;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-nav li {
-    margin: 0 0.75rem;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
-    transition: background 0.3s;
-}
-
-nav a:hover {
-    background: #333;
+/* Quest Log Title */
+.quest-log-title {
+    text-align: center;
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.1rem;
 }
 
 /* Filters and Sorting */
@@ -80,65 +34,89 @@ nav a:hover {
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: #f0f0f0;
-    border-bottom: 1px solid #ddd;
+    background: linear-gradient(180deg, var(--panel-grad-top), var(--panel-grad-bottom));
+    border: 2px solid var(--border-outer);
+    border-radius: 8px;
+    margin: 0 1rem 1rem;
 }
 
 .tags button {
-    background: #333;
-    border: none;
+    background: var(--panel-bg);
+    border: 2px solid var(--border-outer);
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    color: #fff;
+    color: var(--text-color);
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: background 0.3s;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.55rem;
+    transition: background 0.3s, color 0.3s;
+    position: relative;
 }
 
 .tags button.active {
-    background: #555;
+    background: var(--border-outer);
+    color: var(--heading-color);
 }
 
 .tags button:hover {
-    background: #444;
+    background: var(--border-outer);
+    color: var(--heading-color);
+}
+
+.tags button:hover::before {
+    content: '\25B6';
+    position: absolute;
+    left: -1rem;
+    animation: blink 0.8s step-start infinite;
+    color: var(--heading-color);
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.sorting {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: var(--muted-text);
 }
 
 .sorting select {
     padding: 0.5rem;
     border-radius: 4px;
-    border: none;
-    font-size: 0.9rem;
+    border: 2px solid var(--border-outer);
+    font-size: 1rem;
+    background: var(--panel-bg);
+    color: var(--link-color);
+    font-family: 'VT323', monospace;
     cursor: pointer;
 }
 
 /* Project List */
 .project-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Dynamically adjust columns */
-    gap: 1rem; /* Space between grid items */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
     padding: 1rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .project-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Distribute space so items sit at top and bottom */
-    padding: 1rem;
+    justify-content: space-between;
     cursor: pointer;
-    transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s, border-color 0.3s;
     box-sizing: border-box;
 }
 
 .project-card img {
     width: 100%;
     height: auto;
-    border-radius: 4px;
-    margin-bottom: 1rem; /* A bit of space between the image and text */
+    border-radius: 0;
+    margin-bottom: 1rem;
+    border: 3px solid var(--border-outer);
 }
 
 .text-content {
@@ -146,44 +124,75 @@ nav a:hover {
 }
 
 .project-card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #222;
+    font-size: 0.75rem;
+    margin-top: 0;
+}
+
+.project-card p {
+    color: var(--text-color);
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    line-height: 1.5;
 }
 
 .project-card .more-details {
     margin-top: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     text-decoration: none;
-    color: #007acc;
+    color: var(--link-color);
+    font-family: 'VT323', monospace;
+    display: inline-block;
 }
 
 .project-card .more-details:hover {
-    text-decoration: underline;
+    color: var(--link-hover);
+    text-shadow: 0 0 8px rgba(255,102,0,0.5);
+    text-decoration: none;
 }
 
 .project-card:hover {
-    box-shadow: 0 4px 12px rgba(28, 150, 232, 0.243);
+    box-shadow: 0 0 20px rgba(136,136,204,0.4), inset 0 0 20px rgba(136,136,204,0.1);
+    border-color: var(--border-inner);
 }
 
-/* Footer */
-footer {
-    position: static;
-    bottom: 0;
-    width: 100%;
-    background: #f0f0f0;
-    padding: 1rem;
-    box-sizing: border-box;
+/* Footer RPG */
+.footer-rpg {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
 }
 
-footer a {
-    text-decoration: none;
+.footer-label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: var(--heading-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-left, .footer-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-links a {
+    color: var(--link-color);
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .project-list {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
     }
 
     .project-card {
@@ -193,5 +202,11 @@ footer a {
     .filters {
         flex-direction: column;
         align-items: flex-start;
+        margin: 0 0.5rem 1rem;
+    }
+
+    .footer-rpg {
+        flex-direction: column;
+        gap: 1rem;
     }
 }

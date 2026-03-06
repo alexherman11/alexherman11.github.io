@@ -4,27 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | Alex Herman</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%230a0a2e'/><rect x='4' y='4' width='2' height='2' fill='%23ffcc00'/><rect x='10' y='4' width='2' height='2' fill='%23ffcc00'/><rect x='3' y='9' width='10' height='2' fill='%23ffcc00'/><rect x='5' y='11' width='6' height='2' fill='%23ffcc00'/></svg>">
+    <link rel="stylesheet" href="retro-base.css">
     <link rel="stylesheet" href="project-style.css">
 </head>
 <body>
     <div class="page-wrapper">
         <header>
-            <a href="index.html" class="logo">Alex Herman</a>
+            <a href="index.html" class="logo">ALEX HERMAN</a>
             <nav>
                 <ul>
-                    <li><a href="about.html" title="About">About</a></li>
-                    <li><a href="projects.html" title="Projects" class="active">Projects</a></li>
-                    <li><a href="resume.html" title="Resume">Resume</a></li>
+                    <li><a href="about.html" title="Status">Status</a></li>
+                    <li><a href="projects.html" title="Quests" class="active">Quests</a></li>
+                    <li><a href="resume.html" title="Stats">Stats</a></li>
                 </ul>
             </nav>
         </header>
 
         <main>
+            <h2 class="quest-log-title">QUEST LOG</h2>
             <section class="filters">
                 <div class="tags">
-                    <button class="tag active" data-tag="all">All</button>
-                    <button class="tag" data-tag="school">#school</button>
+                    <button class="tag active" data-tag="all">ALL QUESTS</button>
+                    <button class="tag" data-tag="school">#ACADEMY</button>
                     <button class="tag" data-tag="coding">#coding</button>
                     <button class="tag" data-tag="design">#design</button>
                 </div>
@@ -39,54 +41,54 @@
 
             <section class="project-list">
 
-                <article class="project-card" data-title="OTO Motor System" data-date="2025-05-01" data-tags="school design coding">
+                <article class="project-card rpg-window" data-title="OTO Motor System" data-date="2025-05-01" data-tags="school design coding">
                     <img src="images/OTO/oto_board.jpg" alt="OTO Project Thumbnail">
                     <section class="text-content">
                         <h3>OTO Modular Motor System</h3>
                         <p>Smart motor control hardware with PID control, I2C connectivity, and a setup interface for robotics applications.</p>
-                        <a href="projects/oto.html" class="more-details">More details →</a>
+                        <a href="projects/oto.html" class="more-details">VIEW QUEST -></a>
                     </section>
                 </article>
 
-                <article class="project-card" data-title="Beatbox Project" data-date="2024-12-01" data-tags="school design coding">
+                <article class="project-card rpg-window" data-title="Beatbox Project" data-date="2024-12-01" data-tags="school design coding">
                     <img src="images/BeatBox/uart-interface.png" alt="Beatbox Project Thumbnail">
                     <section class="text-content">
                         <h3>Beatbox Project</h3>
                         <p>An interactive music creation project using an STM32 Microcontroller.</p>
-                        <a href="projects/beatbox.html" class="more-details">More details →</a>
+                        <a href="projects/beatbox.html" class="more-details">VIEW QUEST -></a>
                     </section>
                 </article>
-            
-                <article class="project-card" data-title="Sally Project" data-date="2024-12-02" data-tags="coding club design in-progress">
+
+                <article class="project-card rpg-window" data-title="Sally Project" data-date="2024-12-02" data-tags="coding club design in-progress">
                     <img src="https://static.wixstatic.com/media/1ad6ba_4b58cd9e24bf48978e58c73244f0b7b8~mv2.png/v1/fill/w_327,h_91,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/newempowerlogo.png" alt="Sally Project Thumbnail">
                     <section class="text-content">
                         <h3>Foot Mouse for Sally</h3>
                         <p>A project focused on assistive technology for someone without the use of the their hands.</p>
-                        <a href="projects/footmouse.html" class="more-details">More details →</a>
+                        <a href="projects/footmouse.html" class="more-details">VIEW QUEST -></a>
                     </section>
                 </article>
-            
-                <article class="project-card" data-title="PROVE" data-date="2024-4-30" data-tags="club coding">
+
+                <article class="project-card rpg-window" data-title="PROVE" data-date="2024-4-30" data-tags="club coding">
                     <img src="images/PROVE/prove_logo.png" alt="PROVE Project Thumbnail">
                     <section class="text-content">
                     <h3>PROVE</h3>
                     <p>An interactive tablet interface for an electric vehicle</p>
-                    <a href="projects/prove.html" class="more-details">More details →</a>
+                    <a href="projects/prove.html" class="more-details">VIEW QUEST -></a>
                     </section>
                 </article>
 
-                <article class="project-card" data-title="Tree Net" data-date="2023-12-30" data-tags="design">
+                <article class="project-card rpg-window" data-title="Tree Net" data-date="2023-12-30" data-tags="design">
                     <img src="images/TreeNet/icon.jpg" alt="Tree Net Project Thumbnail">
                     <section class="text-content">
                     <h3>Tree Net</h3>
                     <p>Designing and building a tree net from the gound up with no experience.</p>
-                    <a href="projects/treenet.html" class="more-details">More details →</a>
+                    <a href="projects/treenet.html" class="more-details">VIEW QUEST -></a>
                     </section>
                 </article>
 
-                
+
             </section>
-            
+
         </main>
 
         <script>
@@ -100,11 +102,10 @@
             const footerLink = document.querySelector('.full-details-link');
             const sortSelect = document.getElementById('sort-select');
 
-            let currentTag = 'all'; // Keeps track of the active tag
-            let currentSort = 'date'; // Keeps track of the active sort method
+            let currentTag = 'all';
+            let currentSort = 'date';
 
             const applyFilterAndSort = () => {
-                // Step 1: Filter projects based on the current tag
                 projectCards.forEach(card => {
                     const cardTags = card.getAttribute('data-tags');
                     if (currentTag === 'all' || cardTags.includes(currentTag)) {
@@ -114,43 +115,37 @@
                     }
                 });
 
-                // Step 2: Sort the visible projects
                 const visibleProjects = projectCards.filter(card => card.style.display !== 'none');
 
                 if (currentSort === 'date') {
                     visibleProjects.sort((a, b) => {
                         const dateA = new Date(a.dataset.date);
                         const dateB = new Date(b.dataset.date);
-                        return dateB - dateA; // Most recent first
+                        return dateB - dateA;
                     });
                 } else if (currentSort === 'alphabetical') {
                     visibleProjects.sort((a, b) => {
-                        return a.dataset.title.localeCompare(b.dataset.title); // Alphabetical order
+                        return a.dataset.title.localeCompare(b.dataset.title);
                     });
                 }
 
-                // Step 3: Reorder visible projects in the DOM
                 visibleProjects.forEach(project => projectList.appendChild(project));
             };
 
-
-            // Tag click event logic
             tagsButtons.forEach(tagBtn => {
                 tagBtn.addEventListener('click', () => {
                     tagsButtons.forEach(btn => btn.classList.remove('active'));
                     tagBtn.classList.add('active');
-                    currentTag = tagBtn.getAttribute('data-tag'); // Update active tag
+                    currentTag = tagBtn.getAttribute('data-tag');
                     applyFilterAndSort();
                 });
             });
 
-            // Sorting dropdown change event logic
             sortSelect.addEventListener('change', () => {
-                currentSort = sortSelect.value; // Update active sort method
+                currentSort = sortSelect.value;
                 applyFilterAndSort();
             });
 
-            // Click event to display project details in the footer
             projectCards.forEach(card => {
                 card.addEventListener('click', () => {
                     const title = card.querySelector('h3').innerText;
@@ -158,39 +153,36 @@
                     const imgSrc = card.querySelector('img').getAttribute('src');
                     const detailsLink = card.querySelector('.more-details').getAttribute('href');
 
-                    footerTitle.innerText = title;
-                    footerDesc.innerText = desc;
-                    footerImg.setAttribute('src', imgSrc);
-                    footerLink.setAttribute('href', detailsLink);
+                    if (footerTitle) footerTitle.innerText = title;
+                    if (footerDesc) footerDesc.innerText = desc;
+                    if (footerImg) footerImg.setAttribute('src', imgSrc);
+                    if (footerLink) footerLink.setAttribute('href', detailsLink);
                 });
             });
 
-            // Initial filter and sort on page load
             applyFilterAndSort();
         });
 
         </script>
 
         <footer>
-            <hr>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem;">
-                <div style="font-size: 0.9rem;">
+            <div class="footer-rpg">
+                <div class="footer-left">
+                    <span class="footer-label">SAVE POINT</span>
                     <span>1wheelalex@gmail.com</span>
                 </div>
-                <div>
-                    <a href="https://instagram.com/alex.herman101" target="_blank" style="margin-right: 0.5rem;">
-                        <img src="images/icons/instagram-icon.svg" alt="Instagram" style="width:20px;height:auto;">
-                    </a>
-                    <a href="https://github.com/alexherman11" target="_blank" style="margin-right: 0.5rem;">
-                        <img src="images/icons/github-icon.svg" alt="GitHub" style="width:20px;height:auto;">
-                    </a>
-                    <a href="https://linkedin.com/in/alex-herman04" target="_blank">
-                        <img src="images/icons/linkedin-icon.svg" alt="LinkedIn" style="width:20px;height:auto;">
-                    </a>
+                <div class="footer-right">
+                    <span class="footer-label">PARTY LINKS</span>
+                    <div class="footer-links">
+                        <a href="https://instagram.com/alex.herman101" target="_blank">Instagram</a>
+                        <a href="https://github.com/alexherman11" target="_blank">GitHub</a>
+                        <a href="https://linkedin.com/in/alex-herman04" target="_blank">LinkedIn</a>
+                    </div>
                 </div>
             </div>
         </footer>
     </div>
+    <script src="retro-effects.js" defer></script>
 </body>
 
 </html>
